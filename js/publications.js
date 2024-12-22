@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Replace '286/4095' with the actual DBLP author ID
-    const authorId = "286/4095";  // Example ID from DBLP
+    // Replace '389/4542' with your actual DBLP author ID
+    const authorId = "389/4542";  // Example author ID
     
     // Fetch the XML data for the author
     fetch(`https://dblp.org/pid/${authorId}.xml`)
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Extract the author information (name, pid, number of publications)
             const dblpPerson = xmlDoc.getElementsByTagName('dblpperson')[0];
-            const authorName = dblpPerson.getElementsByTagName('name')[0]?.textContent || 'Unknown Author';
+            const authorName = dblpPerson.getAttribute('name') || 'Unknown Author';
             const authorPid = dblpPerson.getAttribute('pid');
             const numPublications = dblpPerson.getAttribute('n');
 
@@ -27,20 +27,18 @@ document.addEventListener("DOMContentLoaded", function() {
             // Check if there are any publications
             if (publications.length > 0) {
                 Array.from(publications).forEach(pub => {
-                    // Handle both 'article' and 'inproceedings' types
-                    let publicationType = pub.getElementsByTagName('article')[0] || pub.getElementsByTagName('inproceedings')[0];
+                    // Handle 'inproceedings' (or 'article' if present)
+                    const inproceedings = pub.getElementsByTagName('inproceedings')[0];
 
-                    if (publicationType) {
-                        const title = publicationType.getElementsByTagName('title')[0]?.textContent || 'No title available';
-                        const year = publicationType.getElementsByTagName('year')[0]?.textContent || 'No year available';
-                        const author = publicationType.getElementsByTagName('author')[0]?.textContent || 'Unknown author';
-                        const journal = publicationType.getElementsByTagName('journal')[0]?.textContent || 'N/A';
-                        const booktitle = publicationType.getElementsByTagName('booktitle')[0]?.textContent || 'N/A';
-                        const url = publicationType.getElementsByTagName('url')[0]?.textContent || '#';
+                    if (inproceedings) {
+                        const title = inproceedings.getElementsByTagName('title')[0]?.textContent || 'No title available';
+                        const year = inproceedings.getElementsByTagName('year')[0]?.textContent || 'No year available';
+                        const booktitle = inproceedings.getElementsByTagName('booktitle')[0]?.textContent || 'N/A';
+                        const url = inproceedings.getElementsByTagName('url')[0]?.textContent || '#';
 
                         // Create a new list item for each publication
                         const li = document.createElement('li');
-                        li.innerHTML = `<a href="${url}" target="_blank"><strong>${title}</strong> (${year}) - ${author} - ${journal || booktitle}</a>`;
+                        li.innerHTML = `<a href="${url}" target="_blank"><strong>${title}</strong> (${year}) - ${booktitle}</a>`;
                         publicationsList.appendChild(li);
                     }
                 });
