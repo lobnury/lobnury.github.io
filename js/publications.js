@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Replace '389/4542' with your actual DBLP author ID
-    const authorId = "389/4542";  // Example author ID
+    const authorId = "286/4095";  // Example author ID
     
     // Fetch the XML data for the author
     fetch(`https://dblp.org/pid/${authorId}.xml`)
