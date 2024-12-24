@@ -63,23 +63,29 @@ nav ul li a:hover {
 #introduction .intro-content {
     display: flex;
     justify-content: space-between;
+    align-items: center; /* Vertically align the blocks */
 }
 
-.presentation, .affiliations {
-    width: 48%;
+.presentation {
+    width: 55%; /* Adjust the width of the presentation section */
 }
 
-.presentation h2, .affiliations h3 {
+.presentation h2, .presentation h3 {
     font-size: 1.5rem;
 }
 
-.affiliations p a {
-    color: #0073e6;
-    text-decoration: none;
+.photo {
+    width: 35%; /* Adjust the width of the photo section */
+    display: flex;
+    justify-content: center;
 }
 
-.affiliations p a:hover {
-    text-decoration: underline;
+.photo img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover;
+    border: 5px solid #fff; /* Optional: adds a white border around the photo */
 }
 
 /* Social Media Icons */
@@ -160,19 +166,19 @@ td a:hover {
 
 ul {
     list-style-type: none;
-    padding-left: 0;
+    padding: 0;
 }
 
 ul li {
-    margin: 10px 0;
+    margin-bottom: 10px;
 }
 
 /* Footer */
 footer {
     background-color: #333;
     color: white;
-    text-align: center;
     padding: 10px;
+    text-align: center;
     margin-top: 20px;
 }
 
