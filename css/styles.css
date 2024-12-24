@@ -1,72 +1,63 @@
-/* General Styling */
+/* General styles */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #f4f4f4;
 }
 
 header {
-    background-image: url('../assets/header-bg.jpg');
-    background-size: cover;
+    background: url('assets/header-bg.jpg') no-repeat center center/cover;
     color: white;
     text-align: center;
-    padding: 80px 20px;
+    padding: 100px 0;
 }
 
-header h1 {
-    font-size: 3.5em;
+h1 {
+    font-size: 3rem;
     margin: 0;
 }
 
-header p {
-    font-size: 1.5em;
+p {
+    font-size: 1.2rem;
+    margin-top: 10px;
 }
 
 /* Navigation Bar */
 nav {
-    background-color: #333;
+    background: #333;
+    color: white;
+    padding: 10px 0;
 }
 
 nav ul {
-    list-style: none;
+    list-style-type: none;
+    text-align: center;
     margin: 0;
     padding: 0;
-    text-align: center;
 }
 
 nav ul li {
-    display: inline-block;
-    margin-right: 20px;
+    display: inline;
+    margin: 0 15px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
-    padding: 10px;
-    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 nav ul li a:hover {
-    background-color: #575757;
+    text-decoration: underline;
 }
 
-/* Section Styling */
-section {
-    padding: 40px 20px;
-    margin-bottom: 40px;
-}
-
-/* Separating Strips */
-section + section {
-    border-top: 4px solid #ccc;  /* Light gray separating strip */
-}
-
+/* Introduction Section */
 #introduction {
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 40px 10%;
+    background-color: #fff;
 }
 
 #introduction .intro-content {
@@ -74,157 +65,117 @@ section + section {
     justify-content: space-between;
 }
 
-#introduction .presentation, #introduction .affiliations {
-    width: 45%;
+.presentation, .affiliations {
+    width: 48%;
 }
 
-#introduction .social-links ul {
+.presentation h2, .affiliations h3 {
+    font-size: 1.5rem;
+}
+
+.affiliations p a {
+    color: #0073e6;
+    text-decoration: none;
+}
+
+.affiliations p a:hover {
+    text-decoration: underline;
+}
+
+/* Social Media Icons */
+.social-links {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.social-links h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.social-icons {
     display: flex;
-    justify-content: center;  /* Center the icons */
-    padding: 0;
-    margin-top: 20px;
+    justify-content: center;
+    gap: 15px;
 }
 
-#introduction .social-links ul li {
-    margin: 0 15px;  /* Add space between icons */
+.social-icons li {
+    list-style-type: none;
 }
 
-#introduction .social-links img {
-    width: 40px;
-    height: 40px;
+.social-icons img {
+    width: 30px;
+    height: 30px;
     transition: transform 0.3s ease;
 }
 
-#introduction .social-links img:hover {
-    transform: scale(1.1);  /* Add a hover effect to scale up the icons */
+.social-icons img:hover {
+    transform: scale(1.2); /* Enlarges the icon on hover */
 }
 
 /* Publications Section */
 #publications {
-    background-color: #f8f9fa;
+    background-color: #e9ecef;
+    padding: 40px 10%;
 }
 
-#publications h2 {
-    font-size: 2.5em;
-    color: #333;
-}
-
-#publications-list {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-#publications-list li {
-    margin-bottom: 15px;
-}
-
-#publications-list a {
-    text-decoration: none;
-    color: #007bff;
-    font-size: 1.1em;
-}
-
-#publications-list a:hover {
-    text-decoration: underline;
-}
-
-/* Publications Table Styling */
-.publications-table {
+table {
     width: 100%;
-    border-collapse: collapse;
     margin-top: 20px;
+    border-collapse: collapse;
 }
 
-.publications-table th, .publications-table td {
-    padding: 12px;
-    text-align: left;
+table, th, td {
     border: 1px solid #ddd;
 }
 
-.publications-table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
+th, td {
+    padding: 12px;
+    text-align: left;
 }
 
-.publications-table td a {
-    color: #007bff;
+th {
+    background-color: #f2f2f2;
+}
+
+td a {
+    color: #0073e6;
     text-decoration: none;
 }
 
-.publications-table td a:hover {
+td a:hover {
     text-decoration: underline;
 }
 
-/* Awards Section */
-#awards {
-    background-color: #e9ecef;
+/* Awards, Teaching, and Skills Sections */
+#awards, #teaching, #skills {
+    padding: 40px 10%;
+    background-color: #fff;
 }
 
-#awards h2 {
-    font-size: 2.5em;
-    color: #333;
+#awards h2, #teaching h2, #skills h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
-#awards ul li {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-/* Teaching & Supervisions Section */
-#teaching {
-    background-color: #f1f3f5;
-}
-
-#teaching h2 {
-    font-size: 2.5em;
-    color: #333;
-}
-
-#teaching h3 {
-    font-size: 2em;
-    color: #333;
-}
-
-#teaching ul {
+ul {
     list-style-type: none;
     padding-left: 0;
 }
 
-#teaching ul li {
-    margin-bottom: 12px;
-    font-size: 1.2em;
-}
-
-/* Skills Section */
-#skills {
-    background-color: #f4f6f9;
-}
-
-#skills h2 {
-    font-size: 2.5em;
-    color: #333;
-}
-
-#skills h3 {
-    font-size: 2em;
-    color: #333;
-}
-
-#skills ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-#skills ul li {
-    margin-bottom: 10px;
-    font-size: 1.2em;
+ul li {
+    margin: 10px 0;
 }
 
 /* Footer */
 footer {
-    text-align: center;
     background-color: #333;
     color: white;
-    padding: 20px;
-    margin-top: 40px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
 }

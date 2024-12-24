@@ -40,14 +40,14 @@ document.addEventListener("DOMContentLoaded", function() {
                         booktitle = inproceedings.getElementsByTagName('booktitle')[0]?.textContent || 'N/A';
                         key = inproceedings.getAttribute('key');
                         // Try to extract the DOI URL from the 'ee' or 'url' field
-                        doiUrl = inproceedings.getElementsByTagName('ee')[0]?.textContent || inproceedings.getElementsByTagName('url')[0]?.textContent || '';
+                        doiUrl = inproceedings.getElementsByTagName('ee')[0]?.textContent || '';
                     } else if (article) {
                         // If it's an article publication
                         title = article.getElementsByTagName('title')[0]?.textContent || 'No title available';
                         booktitle = article.getElementsByTagName('journal')[0]?.textContent || 'N/A';
                         key = article.getAttribute('key');
                         // Try to extract the DOI URL from the 'ee' or 'url' field
-                        doiUrl = article.getElementsByTagName('ee')[0]?.textContent || article.getElementsByTagName('url')[0]?.textContent || '';
+                        doiUrl = article.getElementsByTagName('ee')[0]?.textContent || '';
                     }
 
                     // Create a new row for each publication
