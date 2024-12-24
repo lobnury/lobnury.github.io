@@ -75,14 +75,14 @@ nav ul li a:hover {
 }
 
 .photo {
-    width: 35%; /* Adjust the width of the photo section */
+    width: 25%; /* Adjust the width of the photo section */
     display: flex;
     justify-content: center;
 }
 
 .photo img {
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%; /* Makes the image circular */
     object-fit: cover;
     border: 5px solid #fff; /* Optional: adds a white border around the photo */
