@@ -1,88 +1,121 @@
-/* General Styles */
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
 }
 
 header {
-    background-image: url('assets/header-bg.jpg'); /* Stylish background */
+    background-image: url('../assets/header-bg.jpg');
     background-size: cover;
-    text-align: center;
-    padding: 50px 0;
     color: white;
+    text-align: center;
+    padding: 50px;
 }
 
-header h1 {
+h1 {
     font-size: 3em;
     margin: 0;
 }
 
 nav {
     background-color: #333;
-    text-align: center;
 }
 
 nav ul {
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none;
+    text-align: center;
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block;
+    margin-right: 20px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
-    padding: 15px 30px;
-    display: inline-block;
+    padding: 10px;
+    font-size: 1.2em;
 }
 
 nav ul li a:hover {
     background-color: #575757;
 }
 
-/* Section Styles */
-.section {
+/* Introduction Section */
+#introduction {
     padding: 20px;
-    margin: 20px 0;
+    background-color: #f4f4f4;
 }
 
-.section-title {
+#introduction h2 {
     font-size: 2em;
     margin-bottom: 20px;
-    color: #333;
 }
 
-ul#publications-list {
-    list-style: none;
-    padding: 0;
+.intro-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
-ul#publications-list li {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
+.presentation, .affiliations {
+    width: 45%;
 }
 
-ul#publications-list li a {
-    color: #0073e6;
+.social-links ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.social-links img {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+
+/* Publications Section */
+#publications {
+    padding: 20px;
+}
+
+#publications-list li {
+    margin-bottom: 10px;
+}
+
+#publications-list a {
     text-decoration: none;
+    color: #007bff;
 }
 
-ul#publications-list li a:hover {
+#publications-list a:hover {
     text-decoration: underline;
 }
 
-/* Footer Styles */
+/* Awards, Teaching, and Skills Sections */
+section h2 {
+    font-size: 2em;
+    margin-top: 40px;
+    color: #333;
+}
+
+section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+section ul li {
+    margin-bottom: 10px;
+}
+
+/* Footer */
 footer {
     text-align: center;
-    padding: 20px;
     background-color: #333;
     color: white;
+    padding: 20px;
 }
