@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Replace '389/4542' with your actual DBLP author ID
-    const authorId = "286/4095";  // Example author ID
+    const authorId = "389/4542";  // Example author ID
     
     // Fetch the XML data for the author from DBLP
     fetch(`https://dblp.org/pid/${authorId}.xml`)
@@ -15,32 +15,52 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Check if there are any publications
             if (publications.length > 0) {
+                // Create table structure
+                const table = document.createElement('table');
+                table.setAttribute('class', 'publications-table');
+
+                // Add table headers
+                const headerRow = table.insertRow();
+                headerRow.innerHTML = `
+                    <th>Title</th>
+                    <th>Booktitle</th>
+                    <th>Cite</th>
+                `;
+
                 Array.from(publications).forEach(pub => {
                     // Handle 'inproceedings' (or 'article' if present)
                     const inproceedings = pub.getElementsByTagName('inproceedings')[0];
                     const article = pub.getElementsByTagName('article')[0];
 
-                    let title, year, booktitle, url;
+                    let title, booktitle, key, doiUrl;
 
                     if (inproceedings) {
                         // If it's an inproceedings publication
                         title = inproceedings.getElementsByTagName('title')[0]?.textContent || 'No title available';
-                        year = inproceedings.getElementsByTagName('year')[0]?.textContent || 'No year available';
                         booktitle = inproceedings.getElementsByTagName('booktitle')[0]?.textContent || 'N/A';
-                        url = inproceedings.getElementsByTagName('url')[0]?.textContent || '#';
+                        key = inproceedings.getAttribute('key');
+                        // Try to extract the DOI URL from the 'ee' or 'url' field
+                        doiUrl = inproceedings.getElementsByTagName('ee')[0]?.textContent || inproceedings.getElementsByTagName('url')[0]?.textContent || '';
                     } else if (article) {
                         // If it's an article publication
                         title = article.getElementsByTagName('title')[0]?.textContent || 'No title available';
-                        year = article.getElementsByTagName('year')[0]?.textContent || 'No year available';
                         booktitle = article.getElementsByTagName('journal')[0]?.textContent || 'N/A';
-                        url = article.getElementsByTagName('url')[0]?.textContent || '#';
+                        key = article.getAttribute('key');
+                        // Try to extract the DOI URL from the 'ee' or 'url' field
+                        doiUrl = article.getElementsByTagName('ee')[0]?.textContent || article.getElementsByTagName('url')[0]?.textContent || '';
                     }
 
-                    // Create a new list item for each publication
-                    const li = document.createElement('li');
-                    li.innerHTML = `<a href="${url}" target="_blank"><strong>${title}</strong> (${year}) - ${booktitle}</a>`;
-                    publicationsList.appendChild(li);
+                    // Create a new row for each publication
+                    const row = table.insertRow();
+                    row.innerHTML = `
+                        <td><a href="${doiUrl}" target="_blank">${title}</a></td>
+                        <td>${booktitle}</td>
+                        <td><a href="https://dblp.org/rec/${key}.xml" download>Download BibTeX</a></td>
+                    `;
                 });
+
+                // Append the table to the publications section
+                publicationsList.appendChild(table);
             } else {
                 // If no publications found, display a message
                 publicationsList.innerHTML = "<p>No publications found.</p>";

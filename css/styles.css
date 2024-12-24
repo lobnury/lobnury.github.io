@@ -4,6 +4,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    background-color: #f9f9f9;
 }
 
 header {
@@ -11,14 +12,19 @@ header {
     background-size: cover;
     color: white;
     text-align: center;
-    padding: 50px;
+    padding: 80px 20px;
 }
 
-h1 {
-    font-size: 3em;
+header h1 {
+    font-size: 3.5em;
     margin: 0;
 }
 
+header p {
+    font-size: 1.5em;
+}
+
+/* Navigation Bar */
 nav {
     background-color: #333;
 }
@@ -46,70 +52,172 @@ nav ul li a:hover {
     background-color: #575757;
 }
 
-/* Introduction Section */
+/* Section Styling */
+section {
+    padding: 40px 20px;
+    margin-bottom: 40px;
+}
+
+/* Separating Strips */
+section + section {
+    border-top: 4px solid #ccc;  /* Light gray separating strip */
+}
+
 #introduction {
-    padding: 20px;
     background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#introduction h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.intro-content {
+#introduction .intro-content {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
 }
 
-.presentation, .affiliations {
+#introduction .presentation, #introduction .affiliations {
     width: 45%;
 }
 
-.social-links ul {
+#introduction .social-links ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;  /* Center the icons */
+    padding: 0;
+    margin-top: 20px;
 }
 
-.social-links img {
+#introduction .social-links ul li {
+    margin: 0 15px;  /* Add space between icons */
+}
+
+#introduction .social-links img {
     width: 40px;
     height: 40px;
-    margin: 5px;
+    transition: transform 0.3s ease;
+}
+
+#introduction .social-links img:hover {
+    transform: scale(1.1);  /* Add a hover effect to scale up the icons */
 }
 
 /* Publications Section */
 #publications {
-    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+#publications h2 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+#publications-list {
+    list-style-type: none;
+    padding-left: 0;
 }
 
 #publications-list li {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 #publications-list a {
     text-decoration: none;
     color: #007bff;
+    font-size: 1.1em;
 }
 
 #publications-list a:hover {
     text-decoration: underline;
 }
 
-/* Awards, Teaching, and Skills Sections */
-section h2 {
-    font-size: 2em;
-    margin-top: 40px;
+/* Publications Table Styling */
+.publications-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.publications-table th, .publications-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.publications-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.publications-table td a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.publications-table td a:hover {
+    text-decoration: underline;
+}
+
+/* Awards Section */
+#awards {
+    background-color: #e9ecef;
+}
+
+#awards h2 {
+    font-size: 2.5em;
     color: #333;
 }
 
-section ul {
+#awards ul li {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Teaching & Supervisions Section */
+#teaching {
+    background-color: #f1f3f5;
+}
+
+#teaching h2 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+#teaching h3 {
+    font-size: 2em;
+    color: #333;
+}
+
+#teaching ul {
     list-style-type: none;
     padding-left: 0;
 }
 
-section ul li {
+#teaching ul li {
+    margin-bottom: 12px;
+    font-size: 1.2em;
+}
+
+/* Skills Section */
+#skills {
+    background-color: #f4f6f9;
+}
+
+#skills h2 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+#skills h3 {
+    font-size: 2em;
+    color: #333;
+}
+
+#skills ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#skills ul li {
     margin-bottom: 10px;
+    font-size: 1.2em;
 }
 
 /* Footer */
@@ -118,4 +226,5 @@ footer {
     background-color: #333;
     color: white;
     padding: 20px;
+    margin-top: 40px;
 }
