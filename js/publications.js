@@ -9,17 +9,6 @@ document.addEventListener("DOMContentLoaded", function() {
             const parser = new DOMParser();  // Create a new DOMParser to parse the XML
             const xmlDoc = parser.parseFromString(xmlString, "application/xml");
 
-            // Extract the author information (name, pid, number of publications)
-            const dblpPerson = xmlDoc.getElementsByTagName('dblpperson')[0];
-            const authorName = dblpPerson.getAttribute('name') || 'Unknown Author';
-            const authorPid = dblpPerson.getAttribute('pid');
-            const numPublications = dblpPerson.getAttribute('n');
-
-            // Display author name and number of publications
-            document.getElementById('author-name').textContent = authorName;
-            document.getElementById('author-pid').textContent = `DBLP ID: ${authorPid}`;
-            document.getElementById('num-publications').textContent = `Number of Publications: ${numPublications}`;
-
             // Extract publications ('r' tags) from the XML
             const publicationsList = document.getElementById('publications-list');
             const publications = xmlDoc.getElementsByTagName('r');
@@ -46,30 +35,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 // If no publications found, display a message
                 publicationsList.innerHTML = "<p>No publications found.</p>";
             }
-
-            // Extract and display co-authors (from 'coauthors' tag)
-            const coauthorsList = document.getElementById('coauthors-list');
-            const coauthors = dblpPerson.getElementsByTagName('coauthors');
-            if (coauthors.length > 0) {
-                const coauthorsData = coauthors[0].getElementsByTagName('co');
-                if (coauthorsData.length > 0) {
-                    Array.from(coauthorsData).forEach(coauthor => {
-                        const coauthorName = coauthor.getElementsByTagName('na')[0]?.textContent || 'No name available';
-                        const coauthorPid = coauthor.getAttribute('pid') || 'N/A';
-                        const coauthorLink = `https://dblp.org/pid/${coauthorPid}`;
-                        
-                        const coauthorItem = document.createElement('li');
-                        coauthorItem.innerHTML = `<a href="${coauthorLink}" target="_blank">${coauthorName}</a>`;
-                        coauthorsList.appendChild(coauthorItem);
-                    });
-                } else {
-                    coauthorsList.innerHTML = "<p>No co-authors found.</p>";
-                }
-            }
         })
         .catch(error => {
             console.error("Error fetching or parsing data from DBLP: ", error);
             document.getElementById('publications-list').innerHTML = "<p>Error fetching publications.</p>";
-            document.getElementById('coauthors-list').innerHTML = "<p>Error fetching co-authors.</p>";
         });
 });
