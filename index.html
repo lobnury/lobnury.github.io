@@ -4,119 +4,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lobnury Arnold  HIEN - Academic Profile</title>
+    <title>Lobnury Arnold  HIEN - Academic Website</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <!-- Header Section with Background Image -->
+    <!-- Fixed Navigation Bar -->
     <header>
-        <div class="header-bg">
-            <h1>Lobnury Arnold  HIEN</h1>
-            <p>Researcher in Computer Science</p>
-        </div>
+        <nav id="navbar">
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#research">Research Interests</a></li>
+                <li><a href="#social">Social Links</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#teaching">Teaching & Supervision</a></li>
+                <li><a href="#skills">Skills</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Navigation Bar -->
-    <nav>
-        <ul>
-            <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#publications">Publications</a></li>
-            <li><a href="#awards">Awards</a></li>
-            <li><a href="#teaching">Teaching & Supervisions</a></li>
-            <li><a href="#skills">Skills</a></li>
-        </ul>
-    </nav>
-
-    <!-- Introduction Section -->
-    <section id="introduction">
-        <h2>Introduction</h2>
-        <div class="intro-content">
-            <div class="presentation">
-                <p>Hello, I am Lobnury Arnold  HIEN, a computer science researcher. I am interested in subject like data mining, constraint programming, optimization.</p>
-                <!-- -->
-                <p>My primary goal is to [insert your research goals].</p> <!-- -->
-            </div>
-            <!-- -->
-            <div class="affiliations">
-                <h3>Affiliations</h3>
-                <p>I am currently a Postdoc in the <a href="https://labsticc.fr/en/teams/decide" target="_blank">DECIDE Team of LABSTICC</a>, IMT Atlantique.</p>
-            </div> <!-- -->
+    <!-- About Me Section -->
+    <section id="about">
+        <div class="section-content">
             <div class="photo">
-                <img src="assets/img/profile-1.jpeg" alt="Lobnury Arnold HIEN">
+                <img src="assets/img/profile-1.jpeg" alt="Lobnury Arnold HIEN" class="profile-photo">
+            </div>
+            <div class="text">
+                <h1>About Me</h1>
+                <p>
+                    Hello, I am Lobnury Arnold  HIEN, a computer science researcher. 
+                    I am interested in subject like data mining, constraint programming, optimization.
+                    I am currently a Postdoc in the <a href="https://labsticc.fr/en/teams/decide" target="_blank">DECIDE Team of LABSTICC</a>, IMT Atlantique.
+                </p>
             </div>
         </div>
+    </section>
 
-        <div class="social-links">
-            <!-- -->
-            <h3>Connect with me</h3> <!-- -->
+    <!-- Research Interests Section -->
+    <section id="research">
+        <div class="section-content">
+            <h1>Research Interests</h1>
             <ul>
-                <li><a href="https://www.linkedin.com/in/arnold-hien" target="_blank"><img src="assets/icons/linkedin-1.png" alt="LinkedIn"></a></li>
-                <li><a href="https://github.com/lobnury" target="_blank"><img src="assets/icons/github.svg" alt="GitHub"></a></li>
-                <li><a href="https://gitlab.com/lobnury" target="_blank"><img src="assets/icons/gitlab.png" alt="GitLab"></a></li>
-                <li><a href="https://scholar.google.com/citations?user=v3H7C0EAAAAJ&hl=fr" target="_blank"><img src="assets/icons/google-scholar-1.jpg" alt="Google Scholar"></a></li>
-                <li><a href="https://www.researchgate.net/profile/Arnold-Hien" target="_blank"><img src="assets/icons/researchGate-1.svg.png" alt="ResearchGate"></a></li>
-                <li><a href="https://orcid.org/0000-0002-0547-784X" target="_blank"><img src="assets/icons/ORCID-1.svg.png" alt="ORCID"></a></li>
-                <li><a href="https://dblp.org/pid/286/4095.html" target="_blank"><img src="assets/icons/dblp.png" alt="DBLP"></a></li>
+                <li>Artificial Intelligence</li>
+                <li>Machine Learning</li>
+                <li>Natural Language Processing</li>
+                <li>Computer Vision</li>
             </ul>
+        </div>
+    </section>
+
+    <!-- Social Links Section -->
+    <section id="social">
+        <div class="section-content">
+            <h1>Social Links</h1>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/arnold-hien" target="_blank"><img src="assets/icons/linkedin-1.png" alt="LinkedIn"></a>
+                <a href="https://github.com/lobnury" target="_blank"><img src="assets/icons/github.svg" alt="GitHub"></a>
+                <a href="https://gitlab.com/lobnury" target="_blank"><img src="assets/icons/gitlab.png" alt="GitLab"></a>
+                <a href="https://scholar.google.com/citations?user=v3H7C0EAAAAJ&hl=fr" target="_blank"><img src="assets/icons/google-scholar-1.jpg" alt="Google Scholar"></a>
+                <a href="https://www.researchgate.net/profile/Arnold-Hien" target="_blank"><img src="assets/icons/researchGate-1.svg.png" alt="ResearchGate"></a>
+                <a href="https://orcid.org/0000-0002-0547-784X" target="_blank"><img src="assets/icons/ORCID-1.svg.png" alt="ORCID"></a>
+                <a href="https://dblp.org/pid/286/4095.html" target="_blank"><img src="assets/icons/dblp.png" alt="DBLP"></a>
+            </div>
         </div>
     </section>
 
     <!-- Publications Section -->
     <section id="publications">
-        <h2>Publications</h2>
-        <div id="publications-list">
-            <!-- Publications will be dynamically inserted here by JavaScript -->
+        <div class="section-content">
+            <h1>Publications</h1>
+            <table id="publications-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Conference/Journal</th>
+                        <th>Year</th>
+                        <th>Cite</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Publications will be dynamically inserted here -->
+                </tbody>
+            </table>
         </div>
     </section>
 
-    <!-- Awards Section -->
-    <section id="awards">
-        <h2>Awards</h2>
-        <ul>
-            <li>Best Paper Award, EGC 2024</li>
-            <li>Outstanding Researcher Award, Example University 2023</li>
-            <li>Young Scientist Award, XYZ Conference 2022</li>
-        </ul>
-    </section>
-
-    <!-- Teaching & Supervisions Section -->
+    <!-- Teaching & Supervision Section -->
     <section id="teaching">
-        <h2>Teaching & Supervisions</h2>
-        <h3>Courses Taught</h3>
-        <ul>
-            <li>Advanced Machine Learning</li>
-            <li>Data Structures & Algorithms</li>
-            <li>Introduction to Artificial Intelligence</li>
-        </ul>
-        <h3>Supervisions</h3>
-        <ul>
-            <li>Supervised 3 PhD students in the field of optimization algorithms.</li>
-            <li>Guided 15 MSc students for their final year projects in AI and Data Science.</li>
-        </ul>
+        <div class="section-content">
+            <h1>Teaching & Supervision</h1>
+            <h2>Courses Taught</h2>
+            <table id="courses-table">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Course Title</th>
+                        <th>Level</th>
+                        <th>Department/University</th>
+                        <th>Activities</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Courses will be dynamically inserted here -->
+                </tbody>
+            </table>
+
+            <h2>Students Supervised</h2>
+            <table id="supervision-table">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Student Name</th>
+                        <th>Level</th>
+                        <th>Department/University</th>
+                        <th>Topic</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Supervision data will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
     </section>
 
     <!-- Skills Section -->
     <section id="skills">
-        <h2>Skills</h2>
-        <h3>Programming Languages</h3>
-        <ul>
-            <li>Python</li>
-            <li>C++</li>
-            <li>Java</li>
-        </ul>
-        <h3>Frameworks & Tools</h3>
-        <ul>
-            <li>TensorFlow</li>
-            <li>PyTorch</li>
-            <li>scikit-learn</li>
-            <li>Git, Docker</li>
-        </ul>
+        <div class="section-content">
+            <h1>Skills</h1>
+            <ul>
+                <li>Programming: Python, C++, Java</li>
+                <li>Frameworks: TensorFlow, PyTorch, Keras</li>
+                <li>Tools: Git, Docker, Kubernetes</li>
+            </ul>
+        </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Maxime Garfagni. All Rights Reserved.</p>
+        <p>&copy; 2024 Lobnury Arnold  HIEN. All rights reserved.</p>
     </footer>
 
     <script src="js/publications.js"></script>

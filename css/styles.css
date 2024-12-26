@@ -1,77 +1,106 @@
-/* General styles */
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body & General Styles */
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
+    background-color: #f0f0f0;
+    color: #333;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
 }
 
+a {
+    color: black;  /* Default color */
+    text-decoration: none;  /* Optional: removes underline */
+}
+
+a:visited {
+    color: black;  /* Color stays black after clicking */
+}
+
+/* Fixed Navigation Bar */
 header {
-    background: url('assets/header-bg.jpg') no-repeat center center/cover;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
     color: white;
-    text-align: center;
-    padding: 100px 0;
+    padding: 1rem 0;
+    z-index: 100;
 }
 
-h1 {
-    font-size: 3rem;
-    margin: 0;
-}
-
-p {
-    font-size: 1.2rem;
-    margin-top: 10px;
-}
-
-/* Navigation Bar */
-nav {
-    background: #333;
-    color: white;
-    padding: 10px 0;
-}
-
-nav ul {
+#navbar ul {
     list-style-type: none;
-    text-align: center;
-    margin: 0;
+    display: flex;
+    justify-content: center;
     padding: 0;
 }
 
-nav ul li {
-    display: inline;
+#navbar ul li {
     margin: 0 15px;
 }
 
-nav ul li a {
+#navbar ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    text-transform: uppercase;
+    transition: color 0.3s;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
+#navbar ul li a:hover {
+    color: #4CAF50;
 }
 
-/* Introduction Section */
-#introduction {
-    padding: 40px 10%;
-    background-color: #fff;
+/* Section Styling */
+section {
+    margin-top: 80px;
+    padding: 40px 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
 }
 
-#introduction .intro-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Vertically align the blocks */
+/* About Me Section */
+#about {
+    display: flex; /* Make the section a flex container */
+    align-items: center; /* Vertically center the content */
+    justify-content: flex-start; /* Align items to the left */
+    /* justify-content: space-between; */
+    /**/
+    position: relative;
+    padding: 40px;
+    background-color: white;
+    margin-top: 80px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /**/
 }
 
-.presentation {
-    width: 55%; /* Adjust the width of the presentation section */
+/* Text content inside About Me */
+#about .text {
+    flex: 1; /* Make the text container take up the available space */
+    /* padding-left: 200px; /* Add space to the left to prevent overlap with the image */
+    width: 70%;
 }
 
-.presentation h2, .presentation h3 {
-    font-size: 1.5rem;
+#about .photo {
+    position: relative;
+    width: 20%;
+}
+
+#about .photo img {
+    width: 200px; /* Size of the photo */
+    height: 200px;
+    border-radius: 50%;  /* Make the photo circular */
+    /* position: fixed; */
+    top: -20px;    /* Adjusts the positioning of the photo */
+    border: 3px solid #333;  /* Optional: adds a border around the photo */
 }
 
 .photo {
@@ -81,107 +110,83 @@ nav ul li a:hover {
 }
 
 .photo img {
-    width: 120px;
-    height: 120px;
+    width: 120px; /* Set the width for the circular photo */
+    height: 120px; /* Set height equal to width */
     border-radius: 50%; /* Makes the image circular */
-    object-fit: cover;
+    object-fit: cover; /* Ensures the image fills the circle without distortion */
     border: 5px solid #fff; /* Optional: adds a white border around the photo */
 }
 
-/* Social Media Icons */
-.social-links {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.social-links h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.social-icons li {
+/* Research Interests */
+#research ul {
     list-style-type: none;
+    padding-left: 20px;
 }
 
-.social-icons img {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s ease;
+#research ul li {
+    margin-bottom: 10px;
 }
 
-.social-icons img:hover {
-    transform: scale(1.2); /* Enlarges the icon on hover */
+/* Social Links */
+#social .social-icons {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
 }
 
-/* Publications Section */
-#publications {
-    background-color: #e9ecef;
-    padding: 40px 10%;
+#social .social-icons img {
+    width: 40px;
+    height: 40px;
 }
 
-table {
+/* Publications */
+#publications-table {
     width: 100%;
-    margin-top: 20px;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
-table, th, td {
+#publications-table th, td {
+    padding: 10px;
     border: 1px solid #ddd;
 }
 
-th, td {
-    padding: 12px;
-    text-align: left;
+#publications-table th {
+    background-color: #f9f9f9;
 }
 
-th {
-    background-color: #f2f2f2;
+#publications-table td {
+    color: black;
 }
 
-td a {
-    color: #0073e6;
-    text-decoration: none;
+#publications-table img {
+    width: 12%;
+    height: 1%;
 }
 
-td a:hover {
-    text-decoration: underline;
+/* Courses and Supervision */
+#courses-table, #supervision-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-/* Awards, Teaching, and Skills Sections */
-#awards, #teaching, #skills {
-    padding: 40px 10%;
-    background-color: #fff;
+#courses-table th, #supervision-table th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
 }
 
-#awards h2, #teaching h2, #skills h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-ul li {
-    margin-bottom: 10px;
+#courses-table th, #supervision-table th {
+    background-color: #f9f9f9;
 }
 
 /* Footer */
 footer {
+    text-align: center;
+    padding: 20px;
     background-color: #333;
     color: white;
-    padding: 10px;
-    text-align: center;
-    margin-top: 20px;
-}
-
-footer p {
-    margin: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
