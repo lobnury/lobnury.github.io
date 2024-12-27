@@ -117,6 +117,10 @@ section {
     border: 5px solid #fff; /* Optional: adds a white border around the photo */
 }
 
+.about-text {
+    text-justify: auto;
+}
+
 /* Research Interests */
 #research ul {
     list-style-type: none;
